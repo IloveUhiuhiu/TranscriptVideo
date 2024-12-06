@@ -3,13 +3,12 @@ package Controller;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import Model.BO.GetCookie;
 import Model.BO.UserBO;
 import Model.Bean.User;
@@ -33,7 +32,7 @@ public class LoginServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login.jsp");
             dispatcher.forward(request, response);
         } else {
-            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/home.jsp");
+            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/Uploadd.jsp");
             dispatcher.forward(request, response);
         }
     }
@@ -59,7 +58,7 @@ public class LoginServlet extends HttpServlet {
             } else {
                 GetCookie.deleteUserCookie(response);
             }
-            response.sendRedirect(request.getContextPath() + "/home.jsp");
+            response.sendRedirect(request.getContextPath() + "/Uploadd.jsp");
         } else {
             request.setAttribute("errorString", "Sai tên tài khoản hoặc mật khẩu.");
             doGet(request, response);

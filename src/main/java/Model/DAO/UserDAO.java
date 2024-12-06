@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 import Model.Bean.User;
 
@@ -40,11 +43,15 @@ public class UserDAO {
         }
     }
 	public boolean registerUser(User user) throws SQLException {
-        String query = "INSERT INTO users (email, password) VALUES (?, ?)";
+        String query = "INSERT INTO user (user_id, email, password, create_at) VALUES (?, ?, ?, ?)";
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, user.getEmail());
-            statement.setString(2, user.getPassword());
+        	String user_id = UUID.randomUUID().toString().substring(0, 8);
+        	String create_at = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        	statement.setString(1, user_id); 
+            statement.setString(2, user.getEmail());
+            statement.setString(3, user.getPassword()); 
+            statement.setString(4, create_at);
             return statement.executeUpdate() > 0;
         }
     }

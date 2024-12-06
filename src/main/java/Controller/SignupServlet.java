@@ -3,15 +3,14 @@ package Controller;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import Model.BO.UserBO;
 import Model.Bean.User;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-
-import jakarta.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import Model.BO.UserBO;
+import javax.servlet.RequestDispatcher;
 
 
 @WebServlet("/Signup")
@@ -54,6 +53,7 @@ public class SignupServlet extends HttpServlet {
         try {
             boolean isRegistered = userBO.registerUser(user);
             if (isRegistered) {
+            	System.out.print("thêm thành công");
                 response.sendRedirect(request.getContextPath() + "/login.jsp");
             } else {
                 request.setAttribute("errorString", "Email already exists.");

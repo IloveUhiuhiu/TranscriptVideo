@@ -8,7 +8,7 @@
 <style >
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #6c63ff, #84fab0);
+    background: linear-gradient(135deg, #81C408, #84fab0);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +31,7 @@ body {
     font-size: 2rem;
     margin-bottom: 20px;
     text-align: center;
-    color: #6c63ff;
+    color: #81C408;
 }
 
 /* Nhóm nhập liệu */
@@ -62,7 +62,7 @@ body {
 /* Nút bấm */
 .signup-form .btn-submit {
     width: 100%;
-    background: #6c63ff;
+    background: #81C408;
     color: #fff;
     padding: 10px;
     border: none;
@@ -107,7 +107,7 @@ body {
 <body>
 <div class="signup-container">
     <form action="Signup" method="post" class="signup-form">
-        <h1 class="form-title">Sign Up</h1>
+        <h1 class="form-title">SIGN UP</h1>
         <div class="error-message">
             ${errorString}
         </div>

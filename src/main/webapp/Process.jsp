@@ -1,7 +1,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="model.bean.*"%>
-<%@page import="model.bo.*"%>
+<%@page import="Model.Bean.*"%>
+<%@page import="Model.BO.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -144,8 +144,7 @@
             text-align: center;
             
         }
-
-        
+	
     </style>
 </head>
 
@@ -183,10 +182,11 @@
     console.log('<%= request.getAttribute("videoId") %>');
 	let intervalId;
     function fetchMessage() {
+    	console.log("dc roi 1");
         var videoId = '<%= request.getAttribute("videoId") %>'; // Bao quanh bằng dấu nháy đơn
 
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:8082/TranscriptVideo/GetMes?videoId=' + encodeURIComponent(videoId), true);
+        xhr.open('GET', 'http://localhost:8080/TranscriptVideo/GetMes?videoId=' + encodeURIComponent(videoId), true);
         
         xhr.onload = function() {
             if (xhr.status >= 200 && xhr.status < 300) {
@@ -224,9 +224,10 @@
     }
 
     function startFetchingMessages() {
-    	
+    	console.log("dc roi 2");
         fetchMessage();
-        intervalId = setInterval(fetchMessage, 1000); 
+        intervalId = setInterval(fetchMessage, 100); 
+        
     }
 
     startFetchingMessages();

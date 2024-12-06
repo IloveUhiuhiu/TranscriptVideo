@@ -15,7 +15,7 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #6c63ff, #84fab0);
+            background: linear-gradient(135deg, #81C408, #84fab0);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -36,7 +36,7 @@
             font-size: 2rem;
             margin-bottom: 20px;
             text-align: center;
-            color: #6c63ff;
+            color: #81C408;
         }
 
         .form-group {
@@ -89,7 +89,7 @@
 
         .btn-submit {
             width: 100%;
-            background: #6c63ff;
+            background: #81C408;
             color: #fff;
             padding: 10px;
             border: none;
@@ -135,7 +135,7 @@
 <body>
     <div class="login-container">
         <form action="Login" method="post" class="login-form">
-            <h1 class="form-title">Login</h1>
+            <h1 class="form-title">LOGIN</h1>
             
             <!-- Display error message if available -->
             <%

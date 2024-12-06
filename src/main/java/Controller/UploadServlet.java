@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,8 +18,8 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.*;
 
-import model.bean.*;
-import model.bo.*;
+import Model.Bean.*;
+import Model.BO.*;
 
 
 /**
@@ -47,7 +47,7 @@ public class UploadServlet extends HttpServlet {
     public void init() throws ServletException {
         super.init();
         
-        UPLOAD_DIRECTORY = "E:/Downloads/uploads";
+        UPLOAD_DIRECTORY = "D:/LT_Mang/transcriptvideo";
         executorService = new ThreadPoolExecutor(
         	    5, // Số lượng luồng tối thiểu
         	    10, // Số lượng luồng tối đa
@@ -62,11 +62,11 @@ public class UploadServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (ServletFileUpload.isMultipartContent(request)) {
+        if (ServletFileUpload.isMultipartContent( request)) {
             try {
                 DiskFileItemFactory factory = new DiskFileItemFactory();
                 ServletFileUpload upload = new ServletFileUpload(factory);
-                List<FileItem> items = upload.parseRequest(request); 
+                List<FileItem> items = upload.parseRequest((javax.servlet.http.HttpServletRequest) request); 
 
                 int languageId = 0;
                 File videoFile = null;
