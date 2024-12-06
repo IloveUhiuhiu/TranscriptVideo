@@ -106,7 +106,7 @@ body {
 </head>
 <body>
 <div class="signup-container">
-    <form action="Signup" method="post" class="signup-form">
+    <form action="SignupServlet" method="post" class="signup-form">
         <h1 class="form-title">SIGN UP</h1>
         <div class="error-message">
             ${errorString}
